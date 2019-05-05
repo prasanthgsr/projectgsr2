@@ -1,0 +1,25 @@
+<br /><br />
+<div class="col-md-6 offset-md-2">
+    <h2>Edit user&nbsp; &nbsp;
+    <button class="btn btn-danger" (click)="logOutuser()">Log Off</button></h2>
+ <br />
+ <!-- Designing Edit-User Form -->
+   <form [formGroup]= "editForm" (ngSubmit)="onSubmit()" autocomplete="off">
+   <div class="form-group">
+    <label for="name">Name: </label>
+    <input class="form-control" formControlName="name" id="name" />
+    <div *ngIf="submitted && editForm.controls.name.errors" class="error">
+     <div class="text-danger" *ngIf="editForm.controls.name.errors.required">Name is required</div>
+    </div>
+   </div>
+   <div class="form-group">
+     <label for="status">Status: </label>
+     <input class="form-control" formControlName="status" id="status" />
+     <div *ngIf="submitted && editForm.controls.status.errors" class="error">
+      <div class="text-danger" *ngIf="editForm.controls.status.errors.required">Status is required</div>
+     </div>
+   </div>
+    <button class="btn btn-success">Update</button>&nbsp; &nbsp;
+    <a class="btn btn-warning" [routerLink]="['/list-task']">Cancel</a> <br /><br />
+  </form>
+</div>

@@ -1,0 +1,33 @@
+<br/><br/>
+<div class="offset-md-1 col-md-3">
+  <h3>Login</h3>
+  <br />
+  <form [formGroup]="loginForm" (ngSubmit) ="onSubmit()">
+    <div class="form-group">
+      <label for="email">Email Address : </label>
+      <input type="email" class="form-control" formControlName="email" id="email"/>
+      <div *ngIf="submitted && loginForm.controls.email.errors" class="error">
+        <div class="text-danger" *ngIf="loginForm.controls.email.errors.required">
+            Email is required for using the Application
+        </div> 
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="password">Password : </label>
+      <input type="password" class="form-control" formControlName="password" id="password"/>
+      <div *ngIf="submitted && loginForm.controls.password.errors" class="error">
+        <div class="text-danger" *ngIf="loginForm.controls.password.errors.required">
+            Paasword is required for using the Application
+        </div> 
+      </div>
+    </div>
+    <button class="btn btn-success">Login</button>&nbsp;
+    <button class="btn btn-danger" type="reset">Cancel</button>&nbsp;
+    <a class="btn btn-warning"[routerLink]="['/home']">Back to Home</a><br/><br/>
+    <div *ngIf = "Invalid Login" class="error">
+      <div class="text-danger">
+        Invalid Credentials
+      </div>
+    </div>
+  </form>
+</div>
